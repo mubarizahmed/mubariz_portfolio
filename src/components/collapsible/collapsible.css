@@ -1,0 +1,9 @@
+.mp__collapsible-text{
+    flex:2;
+    font-family: var(--font-family);
+    color: var(--color-white)
+}
+
+.mp__collapsible-text:hover {
+    background-color: rgb(185, 78, 78);
+}

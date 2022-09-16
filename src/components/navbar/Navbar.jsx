@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+// TODO: Make logo
 //import logo from '../../logo.svg';
 import './navbar.css';
 
@@ -18,6 +19,8 @@ const Navbar = () => {
           <p><a href="#experience">Experience</a></p>
           <p><a href="#education">Education</a></p>
           <p><a href="#competencies">Competencies</a></p>
+
+          {/* // TODO: Add all section headers */}
         </div>
       </div>
       <div className="mp__navbar-contact">

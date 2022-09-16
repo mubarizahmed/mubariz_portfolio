@@ -1,6 +1,7 @@
 import hsrw from "./assets/HSRW.png";
 import mjla from "./assets/MJLA.png";
 import nt from "./assets/NT.png";
+import adr from "./assets/adr_cover.png";
 
 export const strings = {
   en: {
@@ -79,6 +80,50 @@ export const strings = {
       { NAME: "Intercultural Skills" },
       { NAME: "Leadership" },
       { NAME: "Effective communcation" }
+    ],
+    PROJECTS: [
+      {
+        NO:"1",
+        TITLE: "Autonomous Delivery Robot",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
+      {
+        NO:"2",
+        TITLE: "Automated Sprinkler System",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
+      {
+        NO:"3",
+        TITLE: "ABS Controller",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
+      {
+        NO:"4",
+        TITLE: "Portfolio Website",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
+      {
+        NO:"5",
+        TITLE: "Employee and Membership Management System",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
+      {
+        NO:"6",
+        TITLE: "Submission Checker",
+        COVER: adr,
+        PAGE: "",
+        TAGS: "",
+      },
     ]
   },
 };

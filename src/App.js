@@ -5,6 +5,7 @@ import { Header } from './containers'
 import { Experience } from './containers'
 import { Education } from './containers'
 import { Competencies } from './containers'
+import { Projects } from './containers'
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Experience language={language} />
         <Education language={language} />
         <Competencies language={language} />
+        <Projects language={language} />
     </div>
   )
 }

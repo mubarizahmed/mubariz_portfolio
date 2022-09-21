@@ -1,0 +1,141 @@
+:root {
+  --surface-color: var(--color-white);
+  --curve: 40;
+}
+
+.mp__projects {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mp__projects-text {
+  font-family: var(--font-family);
+  color: var(--color-black);
+}
+
+.mp__projects-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.mp__project {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  background-color: var(--color-white);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.mp__project-cover img{
+  object-fit: cover;
+  width: 100%
+
+}
+
+.mp__project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.mp__project:hover .mp__project-overlay {
+  transform: translateY(0);
+}
+
+.mp__project-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1em 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.mp__project-arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.mp__project-arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.mp__project:hover .mp__project-header {
+  transform: translateY(0);
+}
+
+.mp__project-thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.mp__project-title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: var(--color-1);
+}
+
+.mp__project-tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: var(--color-black);  
+}
+
+.mp__project-status {
+  font-size: .8em;
+  color: var(--color-black);
+}
+
+.mp__project-description {
+  padding: 0 2rem 0.5rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 0.5rem;
+  
+  
+}    
+
+.mp__project-description button{
+  width: 4rem;
+  position: relative;
+  display: inline-block;
+  width: auto; height: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.mp__project-description button::before{
+  background-color: rgb(28, 31, 30);
+  transition: 0.3s ease-out;
+}
+.mp__project-description button::before{
+  color: rgb(28, 31, 30);
+  transition: 0.2s 0.1s;
+}

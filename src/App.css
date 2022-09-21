@@ -6,7 +6,7 @@
   }
   
   body {
-    background: var(--color-bg);
+    background: var(--color-white);
   }
   
   a {
@@ -14,6 +14,24 @@
     text-decoration: none;
   }
   
+  .dotted__bg {
+    --bg-color: black;
+    --dot-color: rgba(0, 0, 0, 0.5);;
+    --dot-size: 1.2px;
+    --dot-space: calc( calc(100vw - 0.5rem)  / 15);
+
+    background: white;
+    background-image: radial-gradient(var(--dot-color) var(--dot-size), transparent 0);
+    background-size: var(--dot-space) var(--dot-space);
+
+    /* background: linear-gradient(90deg, var(--bg-color) (var(----dot-space) - var(--dot-size)), transparent 1%) center, linear-gradient(var(--bg-color) (var(--dot-space) - var(--dot-size)), transparent 1%) center, var(--dot-color);
+	  background-size: var(--dot-space) var(--dot-space); */
+  }
+
+  .outlet__margin{
+    margin:0 3rem;
+  }
+
   .gradient__bg {
     /* ff 3.6+ */
     background:-moz-radial-gradient(circle at 3% 25%, rgba(17, 17, 17, 1) 0%, rgba(44, 44, 44, 1) 88%);

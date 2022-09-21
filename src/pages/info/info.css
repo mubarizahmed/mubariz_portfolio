@@ -1,0 +1,140 @@
+:root{
+  font-family: var(--font-family);
+}
+
+.info{
+  
+}
+
+.hero{
+  display: flex;
+  height: calc(100vh - 8rem);
+  align-items: center;
+  padding: 3rem;
+}
+
+.hero-text{
+
+}
+
+  .hero-text h1 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+.hero-text-variable{
+  display: flex;
+  flex-direction: row;
+  gap: 0.4em;
+}
+
+.summary{
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 8rem);
+  align-items: center;
+  padding: 3rem;
+  margin-top: 8rem;
+}
+
+hr.solid{
+  border-top: 3px solid var(--color-black);
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+.summary-layout{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.summary-title{
+  flex:1;
+}
+.summary-details{
+  flex:2;
+  display:flex;
+  flex-direction: column;
+  gap:0.3em;
+  text-align: justify;
+  font-family: var(--font-text);
+}
+
+.experience{
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 8rem);
+  align-items: center;
+  padding: 3rem;
+  margin-top: 8rem;
+}
+
+hr.solid{
+  border-top: 3px solid var(--color-black);
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+.experience-layout{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.experience-title{
+  flex:1;
+}
+.experience-details{
+  flex:2;
+  display:flex;
+  flex-direction: column;
+  gap:2em;
+  text-align: justify;
+  padding-top: 1em;
+  font-family: var(--font-text);
+}
+
+.experience-item{
+  display:flex;
+  flex-direction: row;
+}
+
+.experience-item-logo{
+  flex:1;
+  width: 3rem;
+  height:3rem;
+}
+
+.experience-item-logo img{
+  width:100%;
+  object-fit: contain;
+  align-items: center;
+}
+
+.experience-ellipse {
+  width: 2em;
+  height: 2em;
+  margin-inline: 2rem ;
+  margin-top:5px;
+  
+  
+  background: transparent;
+  border: 7px solid var(--color-black);
+  border-radius:50%;
+  box-sizing: border-box;
+}
+
+.experience-item-text{
+  flex: 3;
+}
+
+.experience-item-text:hover{
+  color: var(--color-1)
+}
+
+.experience-item-text-collapsible{
+  margin: 1em;
+}

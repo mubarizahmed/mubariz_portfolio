@@ -2,6 +2,7 @@ import hsrw from "./assets/HSRW.png";
 import mjla from "./assets/MJLA.png";
 import nt from "./assets/NT.png";
 import adr from "./assets/adr_cover.png";
+import React from 'react';
 
 export const strings = {
   en: {
@@ -86,7 +87,7 @@ export const strings = {
         NO:"1",
         TITLE: "Autonomous Delivery Robot",
         COVER: adr,
-        PAGE: "",
+        PAGE: <div><p>Tempor laboris mollit duis id et minim tempor irure. Deserunt amet dolore quis ex non mollit velit eu ipsum esse labore ad ex. Consequat magna minim culpa amet cillum deserunt deserunt magna proident id aute nostrud.</p><p>Eu quis nostrud quis exercitation. Occaecat fugiat sit tempor laboris labore do eu aliqua esse sint id veniam duis do. Lorem ipsum exercitation nisi aliqua fugiat irure ullamco consectetur sint. Occaecat occaecat eu excepteur ipsum laboris. Et sint laborum reprehenderit nulla. Est labore tempor in cupidatat eu tempor fugiat exercitation amet excepteur. Consequat duis deserunt velit duis sunt id qui.</p><p>Eu quis nostrud quis exercitation. Occaecat fugiat sit tempor laboris labore do eu aliqua esse sint id veniam duis do. Lorem ipsum exercitation nisi aliqua fugiat irure ullamco consectetur sint. Occaecat occaecat eu excepteur ipsum laboris. Et sint laborum reprehenderit nulla. Est labore tempor in cupidatat eu tempor fugiat exercitation amet excepteur. Consequat duis deserunt velit duis sunt id qui.</p></div>,
         TAGS: "",
       },
       {

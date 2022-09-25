@@ -1,0 +1,112 @@
+:root{
+  font-family: var(--font-family);
+}
+html{
+  max-height: 100vh;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.projects{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: 3rem;
+  padding-top: 8rem;
+  scroll-snap-align: start;
+}
+
+.tab-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3em;
+  padding-bottom: 1em;
+}
+
+.tabs{
+  font-size: 1em;
+  text-align: left;
+}
+
+.tab-active{
+  flex: 1;
+  transition: flex 0.5s ease-in;
+}
+
+.tab-1-active{
+  color: var(--color-1);
+}
+.tab-2-active{
+  color: var(--color-2);
+}
+.tab-3-active{
+  color: var(--color-3);
+}
+.tab-4-active{
+  color: var(--color-4);
+}
+
+.tab-1-inactive:hover{
+  color: var(--color-1);
+}
+.tab-2-inactive:hover{
+  color: var(--color-2);
+}
+.tab-3-inactive:hover{
+  color: var(--color-3);
+}
+.tab-4-inactive:hover{
+  color: var(--color-4);
+}
+
+.divider-solid{
+  
+  width: 100%;
+  margin: 0 0 0 0;
+  transition: border-color 0.5s linear;
+}
+
+.divider-1{
+  border-top: 5px solid var(--color-1);
+}
+.divider-2{
+  border-top: 5px solid var(--color-2);
+}
+.divider-3{
+  border-top: 5px solid var(--color-3);
+}
+.divider-4{
+  border-top: 5px solid var(--color-4);
+}
+
+.tag-selector{
+  display: flex;
+  flex-wrap: wrap;
+  gap:0.8em;
+  width: 100%;
+  margin: 1em;
+  justify-content: center;
+}
+.tag{
+  display: flex;
+  gap:0.5em;
+
+  border-radius: 1em;
+  border: 1px solid var(--color-black);
+  padding: 0.3em 1em;
+  font-size: 0.8em;
+  font-family: var(--font-text);
+  
+}
+
+.content{
+  display:flex;
+  flex-wrap: wrap;
+  gap:2em;
+  justify-content: center;
+}

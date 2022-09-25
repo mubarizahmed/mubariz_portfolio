@@ -9,7 +9,7 @@ nav{
   align-items: center;
   padding: 2rem 2rem;
   background-color: white;
-  height: 8rem;
+  height: 5rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: 0 3rem;
   border-radius: 0 0 15px 15px;
@@ -36,6 +36,6 @@ nav{
     text-decoration: none;
     color: var(--color-black);
     font-family: var(--font-family);
-    font-size: 2em;
+    font-size: 1.5em;
 }
 

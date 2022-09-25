@@ -1,16 +1,37 @@
 :root{
   font-family: var(--font-family);
 }
-
+html{
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
 .info{
-  
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: 3rem;
+  padding-top: 8rem;
+  scroll-snap-align: start;
+}
+
+hr.solid{
+  border-top: 3px solid var(--color-black);
+  width: 100%;
+  margin: 0 0 2rem 0;
 }
 
 .hero{
   display: flex;
-  height: calc(100vh - 8rem);
-  align-items: center;
-  padding: 3rem;
+  
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .hero-text{
@@ -29,65 +50,19 @@
   gap: 0.4em;
 }
 
-.summary{
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 8rem);
-  align-items: center;
-  padding: 3rem;
-  margin-top: 8rem;
-}
 
-hr.solid{
-  border-top: 3px solid var(--color-black);
-  width: 100%;
-  margin: 0 0 2rem 0;
-}
 
-.summary-layout{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.summary-title{
-  flex:1;
-}
-.summary-details{
-  flex:2;
-  display:flex;
-  flex-direction: column;
-  gap:0.3em;
-  text-align: justify;
-  font-family: var(--font-text);
-}
-
-.experience{
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 8rem);
-  align-items: center;
-  padding: 3rem;
-  margin-top: 8rem;
-}
-
-hr.solid{
-  border-top: 3px solid var(--color-black);
-  width: 100%;
-  margin: 0 0 2rem 0;
-}
-
-.experience-layout{
+.layout{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
 
-.experience-title{
+.title{
   flex:1;
 }
-.experience-details{
+.details{
   flex:2;
   display:flex;
   flex-direction: column;
@@ -97,24 +72,24 @@ hr.solid{
   font-family: var(--font-text);
 }
 
-.experience-item{
+.item{
   display:flex;
   flex-direction: row;
 }
 
-.experience-item-logo{
+.item-logo{
   flex:1;
-  width: 3rem;
-  height:3rem;
+  height:6em;
+  text-align: center;
 }
 
-.experience-item-logo img{
-  width:100%;
+.item-logo img{
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  align-items: center;
 }
 
-.experience-ellipse {
+.item-ellipse {
   width: 2em;
   height: 2em;
   margin-inline: 2rem ;
@@ -127,14 +102,14 @@ hr.solid{
   box-sizing: border-box;
 }
 
-.experience-item-text{
+.item-text{
   flex: 3;
 }
 
-.experience-item-text:hover{
+.item-text:hover{
   color: var(--color-1)
 }
 
-.experience-item-text-collapsible{
+.item-text-collapsible{
   margin: 1em;
 }

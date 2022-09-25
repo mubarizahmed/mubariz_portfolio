@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import { IconContext } from "react-icons";
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import "./card.css";
 
 const Card = (props) => {
@@ -9,18 +11,19 @@ const Card = (props) => {
   };
 
   return (
-    <div className="mp__card" onClick={toggle}>
-      <div className="mp__card-preview">
-        <img src={props.cover} alt={props.title} />
-        {!open && <h3>{props.title}</h3>}
+    <div className="card" onClick={toggle}>
+      <img src={props.cover} alt={props.title} />
+      <div className="card-preview">
+        <div className="card-title">
+          <h3>{props.title}</h3>
+          <IconContext.Provider value={{ className: 'card-icon' }}>
+            <IoArrowForwardCircleOutline />
+          </IconContext.Provider>
+        </div>
+        {open && <div className="card-tags">{props.details}</div>}
       </div>
-      {open && <div className="mp__card-details">
-        <h3>{props.title}</h3>
-        {props.details}
-        
-      </div>}
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

@@ -31,7 +31,7 @@ const Info = () => {
             setExperience(entries.items);
           });
         await client
-          .getEntries({ content_type: "education" })
+          .getEntries({ content_type: "education", order:"fields.id"  })
           .then((entries) => {
             console.log(entries);
             setEducation(entries.items);
@@ -45,7 +45,7 @@ const Info = () => {
 
   return (
     <div className="info">
-      <div className="hero">
+      <section className="hero">
         <div className="hero-text">
           <h1>
             <div id="typewriter2"></div>
@@ -113,44 +113,44 @@ const Info = () => {
             </div>
           </h1>
         </div>
-      </div>
-      <div className="summary">
+      </section>
+      <section className="summary">
         <hr class="solid" />
-        <div className="summary-layout">
-          <div className="summary-title">
+        <div className="layout">
+          <div className="title">
             <p>01</p>
             <h2>Summary</h2>
           </div>
           <div
-            className="summary-details"
+            className="details"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(documentToHtmlString(summary)),
             }}
           ></div>
         </div>
-      </div>
-      <div className="experience">
+      </section>
+      <section className="experience">
         <hr class="solid" />
-        <div className="experience-layout">
-          <div className="experience-title">
+        <div className="layout">
+          <div className="title">
             <p>02</p>
             <h2>Experience</h2>
           </div>
-          <div className="experience-details">
+          <div className="details">
             {experience.map((item) => (
               <>
-                <div className="experience-item">
-                  <div className="experience-item-logo">
-                    <img src={item.fields.logo.fields.file.url} alt="" />
+                <div className="item">
+                  <div className="item-logo">
+                    <img src={item.fields.logo.fields.file.url} alt={item.fields.logo.fields.title} />
                   </div>
-                  <ellipsis className="experience-ellipse" />
-                  <div className="experience-item-text">
+                  <ellipsis className="item-ellipse" />
+                  <div className="item-text">
                   <Collapsible
                     label1={item.fields.position}
                     label2={item.fields.company}
                     label3={item.fields.time}
                   >
-                    <div className="experience-item-collapsible"
+                    <div className="item-collapsible"
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(
                           documentToHtmlString(item.fields.details)
@@ -164,29 +164,29 @@ const Info = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="experience">
+      </section>
+      <section className="education">
         <hr class="solid" />
-        <div className="experience-layout">
-          <div className="experience-title">
-            <p>02</p>
-            <h2>Experience</h2>
+        <div className="layout">
+          <div className="title">
+            <p>03</p>
+            <h2>Education</h2>
           </div>
-          <div className="experience-details">
-            {experience.map((item) => (
+          <div className="details">
+            {education.map((item) => (
               <>
-                <div className="experience-item">
-                  <div className="experience-item-logo">
-                    <img src={item.fields.logo.fields.file.url} alt="" />
+                <div className="item">
+                  <div className="item-logo">
+                    <img src={item.fields.logo.fields.file.url} alt={item.fields.logo.fields.title} />
                   </div>
-                  <ellipsis className="experience-ellipse" />
-                  <div className="experience-item-text">
+                  <ellipsis className="item-ellipse" />
+                  <div className="item-text">
                   <Collapsible
-                    label1={item.fields.position}
-                    label2={item.fields.company}
+                    label1={item.fields.degree}
+                    label2={item.fields.school}
                     label3={item.fields.time}
                   >
-                    <div className="experience-item-collapsible"
+                    <div className="item-collapsible"
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(
                           documentToHtmlString(item.fields.details)
@@ -200,7 +200,7 @@ const Info = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

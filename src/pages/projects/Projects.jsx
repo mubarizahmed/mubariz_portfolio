@@ -171,10 +171,10 @@ const Projects = () => {
           viewData.map((project) => (
             <>
               <Card
-                id={project.sys.id}
-                title={project.fields.title}
-                cover={project.fields.cover.fields.file.url}
-                details={project.fields.tags}
+                id={project?.sys?.id}
+                title={project?.fields?.title}
+                cover={project?.fields?.cover?.fields?.file?.url}
+                details={project?.fields?.tags}
               ></Card>
             </>
           ))}

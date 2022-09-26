@@ -115,7 +115,7 @@ const Info = () => {
         </div>
       </section>
       <section className="summary">
-        <hr class="solid" />
+        <hr className="solid" />
         <div className="layout">
           <div className="title">
             <p>01</p>
@@ -130,7 +130,7 @@ const Info = () => {
         </div>
       </section>
       <section className="experience">
-        <hr class="solid" />
+        <hr className="solid" />
         <div className="layout">
           <div className="title">
             <p>02</p>
@@ -166,7 +166,7 @@ const Info = () => {
         </div>
       </section>
       <section className="education">
-        <hr class="solid" />
+        <hr className="solid" />
         <div className="layout">
           <div className="title">
             <p>03</p>

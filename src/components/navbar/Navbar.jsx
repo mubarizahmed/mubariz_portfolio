@@ -3,7 +3,7 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 // TODO: Make logo
-import Logo from '../../assets/logo.svg';
+import Logo from "../../assets/logo.svg";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -15,9 +15,45 @@ const Navbar = () => {
         <img src={Logo} />
       </div>
       <div className="navbar-links">
-        <Link className="navbar-link" to="/" >info</Link>
-        <Link className="navbar-link" to="/projects" >projects</Link>
-        <Link className="navbar-link" to="/projects" >other</Link>
+        <Link className="navbar-link" to="/">
+          info
+        </Link>
+        <Link className="navbar-link" to="/projects">
+          projects
+        </Link>
+        <Link className="navbar-link" to="/projects">
+          other
+        </Link>
+      </div>
+
+      <div className="menu">
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#000000"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#000"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
+        {toggleMenu && (
+          <div className="menu-container" onClick={() => setToggleMenu(false)}>
+              <Link className="navbar-link" to="/">
+                info
+              </Link>
+              <Link className="navbar-link" to="/projects">
+                projects
+              </Link>
+              <Link className="navbar-link" to="/projects">
+                other
+              </Link>
+
+          </div>
+        )}
       </div>
     </nav>
   );

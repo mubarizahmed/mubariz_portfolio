@@ -16,8 +16,7 @@ section{
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  padding: 3rem;
-  padding-top: 8rem;
+  padding: 8rem 0 3em 0;
   scroll-snap-align: start;
 }
 
@@ -41,7 +40,7 @@ hr.solid{
   .hero-text h1 {
     font-family: var(--font-family);
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 3vw;
   }
 
 .hero-text-variable{
@@ -56,6 +55,7 @@ hr.solid{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -78,32 +78,40 @@ hr.solid{
 }
 
 .item-logo{
-  flex:1;
-  height:6em;
+  flex:1 0;
+  height:5em;
+  width: 8.5em;
   text-align: center;
+  flex-shrink: 0;
 }
 
+
 .item-logo img{
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+.item-right{
+  flex:3;
+  display: flex;
 }
 
 .item-ellipse {
   width: 2em;
   height: 2em;
-  margin-inline: 2rem ;
-  margin-top:5px;
-  
+  margin-inline: 2em ;
+  margin-top:0.3em;
+  flex-shrink: 0;
   
   background: transparent;
-  border: 7px solid var(--color-black);
+  border: 0.4em solid var(--color-black);
   border-radius:50%;
   box-sizing: border-box;
 }
 
 .item-text{
-  flex: 3;
+
+  text-align: left;
 }
 
 .item-text:hover{
@@ -112,4 +120,57 @@ hr.solid{
 
 .item-text-collapsible{
   margin: 1em;
+}
+
+@media (max-width: 60rem) {
+  .projects{
+    font-size: 75%;
+  }
+}
+
+
+@media (max-width: 40rem) {
+  .hero{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-text{
+    text-align: center;
+  }
+
+  .hero-text h1{
+    font-size: 6vw;
+  }
+
+  .hero-text-variable{
+    flex-direction: column;
+    gap:0;
+  }
+
+  .layout{
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .details{
+    font-size: 65%;
+  }
+
+  .item{
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    align-items: flex-start;
+  }
+  .item-right{
+    flex:0;
+  }
+
+  .item-text{
+    width: 20em;
+  }
+  .item-logo{
+    flex:none;
+    overflow:hidden;
+  }
 }

@@ -10,6 +10,8 @@ import "./projectDetails.css";
 const ProjectDetails = () => {
   const { id } = useParams();
   const [content, setContent] = useState([]);
+  const [colorCategory, setColorCategory] = useState(1);
+
   console.log(id);
 
   const client = createClient({
@@ -29,6 +31,19 @@ const ProjectDetails = () => {
     };
     getInfo();
   }, []);
+
+  useEffect(() => {
+    setColorCategory(() => {
+      switch (content?.fields?.category) {
+        case "Engineering":
+          return 1;
+        case "Software":
+          return 2;
+        case "Design":
+          return 3;
+      }
+    });
+  }, [content]);
 
   console.log(content);
 
@@ -70,7 +85,9 @@ const ProjectDetails = () => {
     <div className="blog">
       <div className="blog-hero">
         <div className="blog-hero-left">
-          <div className="blog-hero-category">{content?.fields?.category}</div>
+          <div className={`blog-hero-category color-${colorCategory}`}>
+            {content?.fields?.category}
+          </div>
           <div className="blog-hero-title">{content?.fields?.title}</div>
           <div className="blog-hero-tags">
             {content?.fields?.tags.map((item) => (

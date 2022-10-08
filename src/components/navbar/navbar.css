@@ -39,3 +39,57 @@ nav{
     font-size: 1.5em;
 }
 
+.menu {
+  margin-left: 1rem;
+
+  display: none;
+  position: relative;
+}
+
+.menu svg {
+  cursor: pointer;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  
+  text-align: end;
+  background: var(--color-white);
+  padding: 2em;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  margin-top: 1em;
+  min-width: 10em;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+}
+
+.menu-container p {
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 40rem) {
+  .navbar{
+    font-size: 80%;
+  }
+
+  .navbar-links{
+    display: none;
+  }
+
+  .menu{
+    display: flex;
+  }
+
+  .menu_container {
+      top: 20px;
+  }
+
+  .mp__navbar-menu_container-links-contact {
+      display: block;
+  }
+}

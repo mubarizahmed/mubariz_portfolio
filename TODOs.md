@@ -1,7 +1,13 @@
 # TODOs
 
-TODO 1: Tags to filter projects
+TODO: Media queries
 
-TODO: Scroll Animations
+TODO: Info hero pictures
 
-TODO: Use CMS
+TODO: Fonts
+
+TODO: Background
+
+TODO: Animation
+
+TODO: Other page

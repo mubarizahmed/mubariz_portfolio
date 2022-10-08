@@ -25,13 +25,13 @@ const Info = () => {
           setSummary(entries.items[0].fields.summary);
         });
         await client
-          .getEntries({ content_type: "experience", order:"fields.id" })
+          .getEntries({ content_type: "experience", order: "fields.id" })
           .then((entries) => {
             console.log(entries.items);
             setExperience(entries.items);
           });
         await client
-          .getEntries({ content_type: "education", order:"fields.id"  })
+          .getEntries({ content_type: "education", order: "fields.id" })
           .then((entries) => {
             console.log(entries);
             setEducation(entries.items);
@@ -113,6 +113,7 @@ const Info = () => {
             </div>
           </h1>
         </div>
+        
       </section>
       <section className="summary">
         <hr className="solid" />
@@ -141,23 +142,30 @@ const Info = () => {
               <>
                 <div className="item">
                   <div className="item-logo">
-                    <img src={item.fields.logo.fields.file.url} alt={item.fields.logo.fields.title} />
+                    <img
+                      src={item?.fields?.logo?.fields?.file?.url}
+                      alt={item?.fields?.logo?.fields?.title}
+                    />
                   </div>
-                  <ellipsis className="item-ellipse" />
-                  <div className="item-text">
-                  <Collapsible
-                    label1={item.fields.position}
-                    label2={item.fields.company}
-                    label3={item.fields.time}
-                  >
-                    <div className="item-collapsible"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          documentToHtmlString(item.fields.details)
-                        ),
-                      }}
-                    ></div>
-                  </Collapsible>
+                  <div className="item-right">
+                    <ellipsis className="item-ellipse" />
+
+                    <div className="item-text">
+                      <Collapsible
+                        label1={item?.fields?.position}
+                        label2={item?.fields?.company}
+                        label3={item?.fields?.time}
+                      >
+                        <div
+                          className="item-collapsible"
+                          dangerouslySetInnerHTML={{
+                            __html: DOMPurify.sanitize(
+                              documentToHtmlString(item?.fields?.details)
+                            ),
+                          }}
+                        ></div>
+                      </Collapsible>
+                    </div>
                   </div>
                 </div>
               </>
@@ -177,23 +185,29 @@ const Info = () => {
               <>
                 <div className="item">
                   <div className="item-logo">
-                    <img src={item.fields.logo.fields.file.url} alt={item.fields.logo.fields.title} />
+                    <img
+                      src={item?.fields?.logo?.fields?.file?.url}
+                      alt={item?.fields?.logo?.fields?.title}
+                    />
                   </div>
+                  <div className="item-right">
                   <ellipsis className="item-ellipse" />
                   <div className="item-text">
-                  <Collapsible
-                    label1={item.fields.degree}
-                    label2={item.fields.school}
-                    label3={item.fields.time}
-                  >
-                    <div className="item-collapsible"
-                      dangerouslySetInnerHTML={{
-                        __html: DOMPurify.sanitize(
-                          documentToHtmlString(item.fields.details)
-                        ),
-                      }}
-                    ></div>
-                  </Collapsible>
+                    <Collapsible
+                      label1={item?.fields?.degree}
+                      label2={item?.fields?.school}
+                      label3={item?.fields?.time}
+                    >
+                      <div
+                        className="item-collapsible"
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(
+                            documentToHtmlString(item?.fields?.details)
+                          ),
+                        }}
+                      ></div>
+                    </Collapsible>
+                  </div>
                   </div>
                 </div>
               </>

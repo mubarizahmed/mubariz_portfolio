@@ -2,7 +2,7 @@
   font-family: var(--font-family);
 }
 html{
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   max-height: 100vh;
   overflow-y: scroll;
 }
@@ -71,60 +71,75 @@ hr.solid{
   padding-top: 1em;
   font-family: var(--font-text);
 }
+.items {
+  padding: 0;
+  display: inline-block;
+}
+
+.item{
+  list-style: none;
+  margin: auto;
+  min-height: 50px;
+  border-left: 0.375em solid #000000;
+  padding: 0 0 2em 2em;
+  position: relative;
+}
+
+.item:last-child{
+  border-left: 0.375em solid transparent;
+}
+
+.item::before{
+  position: absolute;
+  left: -1.125em;
+  top: -0.0625em;
+  content: " ";
+  border: 0.375em solid var(--color-black);
+  border-radius: 500%;
+  background: var(--color-white);
+  height: 1em;
+  width: 1em;
+  transition: all 500ms ease-in-out;
+  transition: color ;
+}
+
+.item:hover::before {
+  background: var(--color-current);
+  transition: all 1000ms ease-in-out;
+  transition: background-color 2.5s ease-in-out;
+}
 
 .item{
   display:flex;
   flex-direction: row;
 }
 
-.item-logo{
-  flex:1 0;
-  height:5em;
-  width: 8.5em;
-  text-align: center;
-  flex-shrink: 0;
-}
 
-
-.item-logo img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.item-right{
-  flex:3;
-  display: flex;
-}
-
-.item-ellipse {
-  width: 2em;
-  height: 2em;
-  margin-inline: 2em ;
-  margin-top:0.3em;
-  flex-shrink: 0;
-  
-  background: transparent;
-  border: 0.4em solid var(--color-black);
-  border-radius:50%;
-  box-sizing: border-box;
-}
 
 .item-text{
-
+  flex:3;
+  display: flex;
   text-align: left;
 }
 
-.item-text:hover{
-  color: var(--color-1)
+.item:hover{
+  color: var(--color-current);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  transition: color 2s ease-out;
 }
 
 .item-text-collapsible{
+  /* list-style: none; */
   margin: 1em;
+}
+.bottom{
+  scroll-snap-align: top;
 }
 
 @media (max-width: 60rem) {
-  .projects{
-    font-size: 75%;
+  .info{
+    font-size: 85%;
   }
 }
 
@@ -154,18 +169,25 @@ hr.solid{
   }
 
   .details{
-    font-size: 65%;
+    font-size: 85%;
   }
 
   .item{
+    margin-left: 0.5em;
     justify-content: center;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     align-items: flex-start;
+    text-align: left;
   }
   .item-right{
     flex:0;
   }
-
+  .item-ellipse{
+    width: 1em;
+    height:1em;
+    margin-inline: 1em;
+    border: 0.2em solid var(--color-black);
+  }
   .item-text{
     width: 20em;
   }

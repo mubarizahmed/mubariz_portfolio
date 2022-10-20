@@ -1,22 +1,16 @@
 :root{
   font-family: var(--font-family);
 }
-html{
-  max-height: 100vh;
-}
-.info{
-  display: flex;
-  flex-direction: column;
-}
 
 .projects{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  
+  margin-bottom: 4rem;
   padding-top: 8rem;
   scroll-snap-align: start;
+  /* scroll-snap-type: unset; */
 }
 
 .tab-block{
@@ -24,18 +18,19 @@ html{
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  gap: 3em;
+  gap: 2.5em;
   padding-bottom: 1em;
 }
 
 .tabs{
-  font-size: 1em;
+  font-size: 1.5em;
   text-align: left;
+  transition: all 1s ease-in-out;
 }
 
 .tab-active{
   flex: 1;
-  transition: flex 0.5s ease-in;
+  transition: all 1s ease-in-out;
 }
 
 .tab-1-active{
@@ -72,16 +67,16 @@ html{
 }
 
 .divider-1{
-  border-top: 5px solid var(--color-1);
+  border-top: 0.5em solid var(--color-1);
 }
 .divider-2{
-  border-top: 5px solid var(--color-2);
+  border-top: 0.5em solid var(--color-2);
 }
 .divider-3{
-  border-top: 5px solid var(--color-3);
+  border-top: 0.5em solid var(--color-3);
 }
 .divider-4{
-  border-top: 5px solid var(--color-4);
+  border-top: 0.5em solid var(--color-4);
 }
 
 .tag-selector{
@@ -112,10 +107,17 @@ html{
 }
 
 @media (max-width: 60rem) {
-
+  .projects{
+    font-size: 85%;
+  }
 }
 
 
 @media (max-width: 40rem) {
-
+  .tab-block{
+    gap:1.5em;
+  }
+  .tabs{
+    font-size: 1.2em;
+  }
 }

@@ -6,6 +6,8 @@ import { Card } from "../../components";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  const [filtered, setFitered] =useState(false);
+
   const [currentData, setCurrentData] = useState([]);
   const [filterTags, setFilterTags] = useState([]);
   const [viewData, setViewData] = useState([]);
@@ -15,6 +17,7 @@ const Projects = () => {
     accessToken: process.env.REACT_APP_ACCESS_TOKEN,
   });
 
+  //getInfo()
   useEffect(() => {
     const getInfo = async () => {
       try {
@@ -35,6 +38,7 @@ const Projects = () => {
     getInfo();
   }, []);
 
+  //updateCurrentData()
   useEffect(() => {
     const updateCurrentData = () => {
       setCurrentData(projects.at(toggleState - 1));
@@ -45,6 +49,7 @@ const Projects = () => {
     }
   }, [toggleState, projects]);
 
+  //updateFilterTags()
   useEffect(() => {
     const updateFilterTags = () => {
       const tags = [];
@@ -61,30 +66,31 @@ const Projects = () => {
       });
       console.log(tagsEnabled);
       setFilterTags(tagsEnabled);
-      console.log(filterTags)
+      console.log(filterTags);
     };
     if (currentData) {
       updateFilterTags();
     }
   }, [currentData]);
 
+  //updateViewData()
   useEffect(() => {
     const updateViewData = () => {
       setViewData(
-        currentData.filter( (i) => {
-          for (const tag of i.fields.tags){
+        currentData.filter((i) => {
+          for (const tag of i.fields.tags) {
             console.log(filterTags);
-            const index = filterTags.findIndex(x => x.name === tag);
+            const index = filterTags.findIndex((x) => x.name === tag);
             console.log(index);
-            if (!(index === -1) && filterTags[index].enabled){
+            if (!(index === -1) && filterTags[index].enabled) {
               return true;
             }
           }
           return false;
         })
-      )
-    }
-    if(currentData && filterTags){
+      );
+    };
+    if (currentData && filterTags) {
       updateViewData();
       console.log(viewData);
     }
@@ -92,6 +98,32 @@ const Projects = () => {
 
   const toggleTab = (index) => {
     setToggleState(index);
+    switch (index) {
+      case 1:
+        document.documentElement.style.setProperty(
+          "--color-current",
+          "var(--color-1)"
+        );
+        break;
+      case 2:
+        document.documentElement.style.setProperty(
+          "--color-current",
+          "var(--color-2)"
+        );
+        break;
+      case 3:
+        document.documentElement.style.setProperty(
+          "--color-current",
+          "var(--color-3)"
+        );
+        break;
+      case 4:
+        document.documentElement.style.setProperty(
+          "--color-current",
+          "var(--color-4)"
+        );
+        break;
+    }
   };
 
   const toggleFilter = (name) => {
@@ -111,7 +143,7 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <div className="tab-block">
+      <div className="tab-block" on>
         <div
           className={
             toggleState === 1
@@ -161,7 +193,7 @@ const Projects = () => {
             key={item.name}
             onClick={() => toggleFilter(item.name)}
           >
-            {item.enabled?<span>&#10005;</span>:null}
+            {item.enabled ? <span>&#10005;</span> : null}
             {item.name}
           </div>
         ))}

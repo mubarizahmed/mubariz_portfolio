@@ -36,11 +36,23 @@ const ProjectDetails = () => {
     setColorCategory(() => {
       switch (content?.fields?.category) {
         case "Engineering":
-          return 1;
+          document.documentElement.style.setProperty(
+            "--color-current",
+            "var(--color-1)"
+          );
+          break
         case "Software":
-          return 2;
+          document.documentElement.style.setProperty(
+            "--color-current",
+            "var(--color-2)"
+          );
+          break
         case "Design":
-          return 3;
+          document.documentElement.style.setProperty(
+            "--color-current",
+            "var(--color-3)"
+          );
+          break
       }
     });
   }, [content]);
@@ -85,13 +97,13 @@ const ProjectDetails = () => {
     <div className="blog">
       <div className="blog-hero">
         <div className="blog-hero-left">
-          <div className={`blog-hero-category color-${colorCategory}`}>
+          <div className="blog-hero-category">
             {content?.fields?.category}
           </div>
           <div className="blog-hero-title">{content?.fields?.title}</div>
           <div className="blog-hero-tags">
             {content?.fields?.tags.map((item) => (
-              <div className="tag">{item}</div>
+              <div className="blog-tag">{item}</div>
             ))}
           </div>
         </div>

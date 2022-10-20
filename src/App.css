@@ -30,7 +30,6 @@
 
   .outlet__margin{
     margin:0 10vw;
-    
   }
 
   
@@ -58,6 +57,12 @@
     100% {
       -webkit-transform: scale(1);
               transform: scale(1);
+    }
+  }
+
+  @media screen and (max-width: 40rem) {
+    .outlet__margin{
+      margin:0 5vw;
     }
   }
   

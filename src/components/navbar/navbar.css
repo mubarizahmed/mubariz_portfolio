@@ -28,7 +28,7 @@ nav{
 
 .navbar-links {
     display: flex;
-    gap: 5rem;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -36,7 +36,22 @@ nav{
     text-decoration: none;
     color: var(--color-black);
     font-family: var(--font-family);
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+
+.navbar-button button{
+  padding: 0.5rem 1rem;
+  color: var(--color-white);
+  background: var(--color-current);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 2.5s ease-in-out;
 }
 
 .menu {
@@ -48,6 +63,7 @@ nav{
 
 .menu svg {
   cursor: pointer;
+  transition: all 2.5s ease-in-out;
 }
 
 .menu-container {
@@ -55,7 +71,7 @@ nav{
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-  
+  gap: 1em;
   text-align: end;
   background: var(--color-white);
   padding: 2em;
@@ -75,9 +91,13 @@ nav{
 @media screen and (max-width: 40rem) {
   .navbar{
     font-size: 80%;
+    margin: 0 5vw;
   }
 
   .navbar-links{
+    display: none;
+  }
+  .navbar-button{
     display: none;
   }
 
@@ -85,11 +105,11 @@ nav{
     display: flex;
   }
 
-  .menu_container {
+  .menu-container {
       top: 20px;
   }
 
-  .mp__navbar-menu_container-links-contact {
+  .menu-button {
       display: block;
   }
 }

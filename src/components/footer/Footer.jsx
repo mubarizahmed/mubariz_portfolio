@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import { IconContext } from "react-icons";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { FaLinkedinIn, FaGithub, FaXing } from "react-icons/fa";
 
 import Logo from "../../assets/logo-H_w.svg";
 import "./footer.css";
 
 const Footer = ({ linkedIn, gitHub }) => {
-  const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <footer className="footer">
       <div className="footer-main">
         <div className="footer-left">
           <div className="footer-logo">
-            <img src={Logo} />
+            <img src={Logo} alt="Mubariz Ahmed Logo" />
           </div>
           <div className="footer-icons">
             <IconContext.Provider
               value={{ color: "black", style: { verticalAlign: "middle" } }}
             >
-              <a className="footer-icon" href={linkedIn}>
+              <a className="footer-icon" href={linkedIn} aria-label="LinkedIn Profile">
                 <FaLinkedinIn />
               </a>
 
-              <a className="footer-icon" href={gitHub}>
+              <a className="footer-icon" href={gitHub} aria-label="GitHub Profile">
                 <FaGithub />
               </a>
 
-              <a className="footer-icon" href={linkedIn}>
-                <FaLinkedinIn />
+              <a className="footer-icon" href={linkedIn} aria-label="Xing Profile">
+                <FaXing />
               </a>
             </IconContext.Provider>
           </div>
@@ -50,14 +47,14 @@ const Footer = ({ linkedIn, gitHub }) => {
                 <input
                   type="text"
                   name="name"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Full Name"
                   required
                 />
                 <input
                   type="email"
                   name="email"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Email Address"
                   required
                 />
@@ -65,7 +62,7 @@ const Footer = ({ linkedIn, gitHub }) => {
               <div className="form-text">
                 <textarea
                   placeholder="Your Message"
-                  class="form-control"
+                  className="form-control"
                   name="message"
                   rows="10"
                   required

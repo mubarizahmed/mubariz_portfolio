@@ -6,7 +6,6 @@ import { Card } from "../../components";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [toggleState, setToggleState] = useState(1);
-  const [filtered, setFitered] =useState(false);
 
   const [currentData, setCurrentData] = useState([]);
   const [filterTags, setFilterTags] = useState([]);
@@ -22,17 +21,17 @@ const Projects = () => {
     const getInfo = async () => {
       try {
         await client.getEntries({ content_type: "project" }).then((entries) => {
-          console.log(entries);
+          //console.log(entries);
           setProjects([
             entries.items.filter((x) => x.fields.category === "Engineering"),
             entries.items.filter((x) => x.fields.category === "Software"),
             entries.items.filter((x) => x.fields.category === "Design"),
             entries.items,
           ]);
-          console.log(projects);
+          //console.log(projects);
         });
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
     getInfo();
@@ -44,7 +43,7 @@ const Projects = () => {
       setCurrentData(projects.at(toggleState - 1));
     };
     if (projects) {
-      console.log(projects);
+      //console.log(projects);
       updateCurrentData();
     }
   }, [toggleState, projects]);
@@ -54,9 +53,9 @@ const Projects = () => {
     const updateFilterTags = () => {
       const tags = [];
       const tagsEnabled = [];
-      console.log(currentData);
+      //console.log(currentData);
       currentData.forEach(function (value) {
-        console.log(value);
+        //console.log(value);
         value.fields.tags.forEach(function (t) {
           if (tags.indexOf(t) === -1) {
             tags.push(t);
@@ -64,9 +63,9 @@ const Projects = () => {
           }
         });
       });
-      console.log(tagsEnabled);
+      //console.log(tagsEnabled);
       setFilterTags(tagsEnabled);
-      console.log(filterTags);
+      //console.log(filterTags);
     };
     if (currentData) {
       updateFilterTags();
@@ -79,9 +78,9 @@ const Projects = () => {
       setViewData(
         currentData.filter((i) => {
           for (const tag of i.fields.tags) {
-            console.log(filterTags);
+            //console.log(filterTags);
             const index = filterTags.findIndex((x) => x.name === tag);
-            console.log(index);
+            //console.log(index);
             if (!(index === -1) && filterTags[index].enabled) {
               return true;
             }
@@ -92,7 +91,7 @@ const Projects = () => {
     };
     if (currentData && filterTags) {
       updateViewData();
-      console.log(viewData);
+      //console.log(viewData);
     }
   }, [currentData, filterTags]);
 
@@ -127,23 +126,23 @@ const Projects = () => {
   };
 
   const toggleFilter = (name) => {
-    console.log(name);
+    //console.log(name);
     try {
       const newFilterTags = [...filterTags];
       const index = newFilterTags.findIndex((obj) => obj.name === name);
       newFilterTags[index].enabled = !newFilterTags[index].enabled;
-      console.log(newFilterTags[index].enabled);
+      //console.log(newFilterTags[index].enabled);
       setFilterTags(newFilterTags);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
-  console.log(filterTags);
+  //console.log(filterTags);
 
   return (
     <div className="projects">
-      <div className="tab-block" on>
+      <div className="tab-block">
         <div
           className={
             toggleState === 1
@@ -201,14 +200,13 @@ const Projects = () => {
       <div className="content">
         {viewData &&
           viewData.map((project) => (
-            <>
-              <Card
-                id={project?.sys?.id}
-                title={project?.fields?.title}
-                cover={project?.fields?.cover?.fields?.file?.url}
-                details={project?.fields?.tags}
-              ></Card>
-            </>
+            <Card
+              key={project?.sys?.id}
+              id={project?.sys?.id}
+              title={project?.fields?.title}
+              cover={project?.fields?.cover?.fields?.file?.url}
+              details={project?.fields?.tags}
+            ></Card>
           ))}
       </div>
     </div>

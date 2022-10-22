@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/logo-1.svg";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -10,15 +10,14 @@ const Navbar = () => {
 
   const goToContact = () => {
     const contactElement = document.getElementById('contact');
-    console.log(contactElement);
-    {contactElement.scrollIntoView({ behavior: 'smooth' })}
+    contactElement.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
     <nav className="navbar">
       <Link className="navbar-link" to="/">
         <div className="navbar-logo">
-          <img src={Logo} />
+          <img src={Logo} alt="Mubariz Ahmed"/>
         </div>
       </Link>
       <div className="navbar-links">
@@ -63,7 +62,7 @@ const Navbar = () => {
               other
             </Link>
             <div className="navbar-button menu-button">
-              <button type="button">Contact</button>
+              <button type="button" onClick={() => goToContact()}>Contact</button>
             </div>
           </div>
         )}

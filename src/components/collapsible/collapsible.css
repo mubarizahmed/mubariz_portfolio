@@ -44,3 +44,9 @@
 
   transition: 0.5s cubic-bezier(0.23,1,0.32,1);
 }
+
+@media (max-width: 40rem) {
+  .toggle{
+    margin: 1em 0 0 0;
+  }
+}

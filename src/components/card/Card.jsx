@@ -14,7 +14,7 @@ const Card = (props) => {
 
         <div className="card-tags">
           {props.details.map((item) => (
-            <div className="card-tag">{item}</div>
+            <div key={item} className="card-tag">{item}</div>
           ))}
         </div>
 

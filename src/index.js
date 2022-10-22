@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.js";
 import { Info, Projects, NoPage, ProjectDetails } from "./pages";
 import { ScrollToTop } from "./helpers";

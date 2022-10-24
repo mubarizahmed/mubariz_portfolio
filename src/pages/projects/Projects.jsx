@@ -97,33 +97,14 @@ const Projects = () => {
 
   const toggleTab = (index) => {
     setToggleState(index);
-    switch (index) {
-      case 1:
-        document.documentElement.style.setProperty(
-          "--color-current",
-          "var(--color-1)"
-        );
-        break;
-      case 2:
-        document.documentElement.style.setProperty(
-          "--color-current",
-          "var(--color-2)"
-        );
-        break;
-      case 3:
-        document.documentElement.style.setProperty(
-          "--color-current",
-          "var(--color-3)"
-        );
-        break;
-      case 4:
-        document.documentElement.style.setProperty(
-          "--color-current",
-          "var(--color-4)"
-        );
-        break;
-    }
   };
+
+  useEffect(()=>{
+    document.documentElement.style.setProperty(
+      "--color-current",
+      `var(--color-${toggleState})`
+    );
+  },[toggleState])
 
   const toggleFilter = (name) => {
     //console.log(name);

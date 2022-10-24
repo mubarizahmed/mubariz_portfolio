@@ -28,9 +28,9 @@ hr.solid{
 
 .hero{
   display: flex;
-  
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .hero-text{
@@ -47,6 +47,35 @@ hr.solid{
   display: flex;
   flex-direction: row;
   gap: 0.4em;
+}
+.hero-image{
+  display: flex;
+}
+.hero-image-left{
+  height: 55vh;
+}
+
+
+.hero-image img{
+
+  /* min-width: 300px; */
+  transition: all 1000ms ease-in-out;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  max-height: 55vh;
+  max-width: 30vw;
+}
+.hero-image-active{
+  /* display: block; */
+  opacity: 1;
+  width: 300px;
+}
+.hero-image-inactive{
+  opacity: 0;
+  width: 0;
+  /* display:  none; */
 }
 
 
@@ -143,21 +172,33 @@ hr.solid{
 
 @media (max-width: 40rem) {
   .hero{
-    flex-direction: column;
-    /* align-items: center; */
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 1em;
   }
 
   .hero-text{
-    /* text-align: center; */
+    text-align: left;
+    padding-bottom: 5vh;;
   }
 
   .hero-text h1{
     font-size: 6vw;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
   }
 
   .hero-text-variable{
     flex-direction: row;
     /* gap:0; */
+  }
+  .hero-image{
+    width: 90vw;
+    justify-content: center;
+  }
+  .hero-image img{
+    max-width: 90vw;
   }
 
   .layout{

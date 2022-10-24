@@ -22,7 +22,7 @@
 .blog-hero-category{
   font-family: var(--font-text);
   text-transform: uppercase;
-  font-size: 0.7em;
+  font-size: 1em;
   font-weight: bold;
   color: var(--color-current);
 }
@@ -43,7 +43,7 @@
   border-radius: 1em;
   border: 1px solid var(--color-black);
   padding: 0.3em 1em;
-  font-size: 0.6em;
+  font-size: 0.9em;
   color: var(--color-white);
   font-family: var(--font-text);
 }
@@ -77,19 +77,31 @@
   font-size: 1.2em;
 }
 
+code{
+  text-align: left;
+  font-family: var(--font-code);
+  overflow-wrap: break-word;
+}
+
 @media (max-width: 60rem) {
   .blog{
-    font-size: 75%;
+    font-size: 14px;
   }
 }
 
 
 @media (max-width: 40rem) {
   .blog-hero{
-    flex-direction: column;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    min-height: auto;
   }
   .blog-hero-left{
+    flex: 0;
     padding-bottom: 0;
+  }
+  .blog-hero-right{
+    flex: 0;
   }
   .blog-hero-title{
     font-size: 2em;

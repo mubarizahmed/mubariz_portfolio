@@ -40,19 +40,21 @@ const ProjectDetails = () => {
             "--color-current",
             "var(--color-1)"
           );
-          break
+          break;
         case "Software":
           document.documentElement.style.setProperty(
             "--color-current",
             "var(--color-2)"
           );
-          break
+          break;
         case "Design":
           document.documentElement.style.setProperty(
             "--color-current",
             "var(--color-3)"
           );
-          break
+          break;
+        default:
+          break;
       }
     });
   }, [content]);
@@ -97,9 +99,7 @@ const ProjectDetails = () => {
     <div className="blog">
       <div className="blog-hero">
         <div className="blog-hero-left">
-          <div className="blog-hero-category">
-            {content?.fields?.category}
-          </div>
+          <div className="blog-hero-category">{content?.fields?.category}</div>
           <div className="blog-hero-title">{content?.fields?.title}</div>
           <div className="blog-hero-tags">
             {content?.fields?.tags.map((item) => (
@@ -108,7 +108,7 @@ const ProjectDetails = () => {
           </div>
         </div>
         <div className="blog-hero-right">
-          <img src={content?.fields?.cover?.fields?.file?.url} />
+          <img src={content?.fields?.cover?.fields?.file?.url} alt={content?.fields?.title}/>
         </div>
       </div>
       <div className="blog-body">

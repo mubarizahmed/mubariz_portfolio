@@ -6,6 +6,9 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import DOMPurify from "dompurify";
 import { Collapsible } from "../../components";
 import { useOutletContext } from "react-router-dom";
+import Hero1 from "../../assets/hero-1.svg";
+import Hero2 from "../../assets/hero-2.svg";
+import Hero3 from "../../assets/hero-3.svg";
 
 const Info = (props) => {
   const [loaded, setLoaded] = useState(false);
@@ -13,6 +16,7 @@ const Info = (props) => {
   const [experience, setExperience] = useState([]);
   const [education, setEducation] = useState([]);
   const setInfo = useOutletContext();
+  const [currHero,setCurrHero] = useState(1);
 
   const client = createClient({
     space: process.env.REACT_APP_SPACE,
@@ -46,6 +50,28 @@ const Info = (props) => {
     getInfo();
   }, []);
 
+  const changeHero = (index) => {
+    switch (index){
+      case 1:
+        setCurrHero(1);
+        break;
+      case 2:
+        setCurrHero(2);
+        break;
+      case 3:
+        setCurrHero(3);
+        break;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => { 
+    document.documentElement.style.setProperty(
+      "--color-current",
+      `var(--color-${currHero})`
+    );
+  },[currHero])
   return (
     <div className="info">
       <section className="hero">
@@ -95,10 +121,7 @@ const Info = (props) => {
                     typewriter
                       .changeCursor("|")
                       .callFunction(() => {
-                        document.documentElement.style.setProperty(
-                          "--color-current",
-                          "var(--color-1)"
-                        );
+                        
                       })
                       .typeString(
                         "<span style='color: var(--color-1);'> Mechatronics Engineer</span>"
@@ -106,21 +129,15 @@ const Info = (props) => {
                       .pauseFor(1000)
                       .deleteChars(21)
                       .callFunction(() => {
-                        document.documentElement.style.setProperty(
-                          "--color-current",
-                          "var(--color-2)"
-                        );
+                        changeHero(2);
                       })
                       .typeString(
                         "<span style='color: var(--color-2);'> Developer</span>"
                       )
-                      .pauseFor(1000)
+                      .pauseFor(2000)
                       .deleteChars(9)
                       .callFunction(() => {
-                        document.documentElement.style.setProperty(
-                          "--color-current",
-                          "var(--color-3)"
-                        );
+                        changeHero(3);
                       })
                       .typeString(
                         "<span style='color: var(--color-3);'> Graphics Designer</span>"
@@ -128,10 +145,7 @@ const Info = (props) => {
                       .pauseFor(1000)
                       .deleteChars(17)
                       .callFunction(() => {
-                        document.documentElement.style.setProperty(
-                          "--color-current",
-                          "var(--color-1)"
-                        );
+                        changeHero(1);
                       })
                       .start();
                   }}
@@ -139,6 +153,12 @@ const Info = (props) => {
               )}
             </div>
           </h1>
+        </div>
+        <div className="hero-image">
+          <div className="hero-image-left"/>
+          <img src={Hero1} alt="Hero 1" className={(currHero === 1) ? `hero-image-active` : 'hero-image-inactive'}/>
+          <img src={Hero2} alt="Hero 2" className={(currHero === 2) ? `hero-image-active` : 'hero-image-inactive'}/>
+          <img src={Hero3} alt="Hero 3" className={(currHero === 3) ? `hero-image-active` : 'hero-image-inactive'}/>
         </div>
       </section>
       <section className="summary">

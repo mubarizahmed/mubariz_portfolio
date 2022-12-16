@@ -1,3 +1,3 @@
 # Personal Portfolio Website
-This is a single-page website built with React JS.
+This is a static website built with React JS and Contentful CMS. 
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createClient } from "contentful";
 import "./projects.css";
 import { Card } from "../../components";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -59,7 +60,7 @@ const Projects = () => {
         value.fields.tags.forEach(function (t) {
           if (tags.indexOf(t) === -1) {
             tags.push(t);
-            tagsEnabled.push({ name: t, enabled: true });
+            tagsEnabled.push({ name: t, enabled: false });
           }
         });
       });
@@ -75,6 +76,10 @@ const Projects = () => {
   //updateViewData()
   useEffect(() => {
     const updateViewData = () => {
+      if (filterTags.every((x) => x.enabled === false)) {
+        setViewData(currentData);
+        return;
+      }
       setViewData(
         currentData.filter((i) => {
           for (const tag of i.fields.tags) {
@@ -123,7 +128,7 @@ const Projects = () => {
 
   return (
     <div className="projects">
-      <div className="tab-block">
+      <motion.div layout className="tab-block">
         <div
           className={
             toggleState === 1
@@ -164,21 +169,28 @@ const Projects = () => {
         >
           All
         </div>
-      </div>
+      </motion.div>
       <hr className={`divider-solid divider-${toggleState}`} />
-      <div className="tag-selector">
+      <motion.div 
+        layout 
+        exit = {{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        
+        transition={{ duration: 1 }} 
+        className="tag-selector">
         {filterTags.map((item) => (
-          <div
-            className="tag"
+          <motion.div layout
+            className={item.enabled ? "tag tag-enabled" : "tag"}
             key={item.name}
             onClick={() => toggleFilter(item.name)}
           >
             {item.enabled ? <span>&#10005;</span> : null}
             {item.name}
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <div className="content">
+      </motion.div>
+      <motion.div layout className="content">
         {viewData &&
           viewData.map((project) => (
             <Card
@@ -188,8 +200,9 @@ const Projects = () => {
               cover={project?.fields?.cover?.fields?.file?.url}
               details={project?.fields?.tags}
             ></Card>
+
           ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

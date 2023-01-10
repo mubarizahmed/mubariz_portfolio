@@ -84,6 +84,7 @@ const Info = (props) => {
                   .callFunction(() => {
                     setLoaded(false);
                   })
+                  .changeDelay(50)
                   .typeString("Hello, there!")
                   .pauseFor(1000)
                   .typeString("<br>My name is Mubariz Ahmed")
@@ -99,7 +100,8 @@ const Info = (props) => {
                 }}
                 onInit={(typewriter) => {
                   typewriter
-                    .pauseFor(7000)
+                    .pauseFor(4000)
+                    .changeDelay(50)
                     .changeCursor("|")
                     .typeString("I am a ")
                     .callFunction(() => {
@@ -120,13 +122,15 @@ const Info = (props) => {
                   onInit={(typewriter) => {
                     typewriter
                       .changeCursor("|")
+                      .changeDelay(50)
+                      .changeDeleteSpeed(30)
                       .callFunction(() => {
                         
                       })
                       .typeString(
                         "<span style='color: var(--color-1);'> Mechatronics Engineer</span>"
                       )
-                      .pauseFor(1000)
+                      .pauseFor(2000)
                       .deleteChars(21)
                       .callFunction(() => {
                         changeHero(2);
@@ -134,7 +138,7 @@ const Info = (props) => {
                       .typeString(
                         "<span style='color: var(--color-2);'> Developer</span>"
                       )
-                      .pauseFor(2000)
+                      .pauseFor(3000)
                       .deleteChars(9)
                       .callFunction(() => {
                         changeHero(3);
@@ -142,7 +146,7 @@ const Info = (props) => {
                       .typeString(
                         "<span style='color: var(--color-3);'> Graphics Designer</span>"
                       )
-                      .pauseFor(1000)
+                      .pauseFor(2000)
                       .deleteChars(17)
                       .callFunction(() => {
                         changeHero(1);

@@ -244,11 +244,11 @@ hr.solid{
 
 @media (max-width: 22rem) {
   .info{
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .details{
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .details h2{

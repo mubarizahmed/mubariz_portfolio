@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IconContext } from "react-icons";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
 import "./card.css";
 
 const Card = (props) => {

@@ -87,6 +87,7 @@
   margin: 1em;
   justify-content: center;
 }
+
 .tag{
   display: flex;
   gap:0.5em;
@@ -99,11 +100,17 @@
   
 }
 
+.tag-enabled{
+  color: var(--color-current);
+}
+
 .content{
   display:flex;
   flex-wrap: wrap;
   gap:2em;
   justify-content: center;
+
+  transition: all 1s ease-in-out;
 }
 
 @media (max-width: 60rem) {
